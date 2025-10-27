@@ -233,7 +233,7 @@ onBeforeUnmount(() => {
   }
 }
 // 390px 일때
-@media (max-width: 390px) {
+@media (max-width: 450px) {
   .inner {
     .title-box {
       margin-bottom: 24px;

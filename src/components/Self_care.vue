@@ -20,8 +20,7 @@
             v-for="(item, i) in cards"
             :key="i"
             @mouseenter="activeIndex = i"
-            @mouseleave="activeIndex = null"
-          >
+            @mouseleave="activeIndex = null">
             <h3 class="title">{{ item.title }}</h3>
             <div class="img" :class="{ lastCard: i === 3 }">
               <img :src="item.img" :alt="item.title" />
@@ -32,14 +31,21 @@
             </div>
           </div>
         </div>
-        <div class="notice"><span class="arrow">▲</span> 카드에 마우스를 올려보세요 !</div>
+        <div v-if="tabSize" class="notice">
+          <span class="arrow">▲</span>
+          카드를 클릭해보세요 !
+        </div>
+        <div v-else class="notice">
+          <span class="arrow">▲</span>
+          카드에 마우스를 올려보세요 !
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch, onBeforeUnmount } from "vue";
 
 const activeIndex = ref(null);
 const isActive = ref(false);
@@ -101,6 +107,18 @@ const cards = ref([
     desc: "정기 점검은 반드시 전문가에게 의뢰하고, 얼음이 덜어졌을 때 필터 막힘 가능성을 확인하세요.",
   },
 ]);
+
+const tabSize = ref(false);
+const updateText = () => {
+  tabSize.value = window.innerWidth <= 768 ? true : false;
+};
+onMounted(() => {
+  updateText();
+  window.addEventListener("resize", updateText);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateText);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -322,7 +340,7 @@ const cards = ref([
 }
 // 390px 반응형 모바일
 // 셀프케어 영역
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 450px) {
   .care-wrap {
     padding: 30px 0 0;
 
@@ -382,7 +400,6 @@ const cards = ref([
           }
 
           .img {
-
             &.lastCard {
               img {
                 padding: 5px;
