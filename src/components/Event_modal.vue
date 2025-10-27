@@ -97,7 +97,7 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
     left: 50%;
     transform: translateX(-50%);
     padding: 15px 0;
-    width: 50%;
+    width: 55%;
     border-radius: 50px;
     border: 1px solid transparent;
     background: transparent;
