@@ -17,6 +17,7 @@
     <FAQ />
     <QR_banner />
     <Footer_w />
+    <Quick_btn />
   </div>
 </template>
 <script setup>
@@ -35,6 +36,7 @@ import Side_menu from "@/components/Side_menu.vue";
 import Visual from "@/components/Visual.vue";
 import Footer_w from "@/components/Footer_w.vue";
 import Event_modal from "@/components/Event_modal.vue";
+import Quick_btn from '@/components/Quick_btn.vue';
 </script>
 <style lang="scss" scoped>
 .top_wrap {
