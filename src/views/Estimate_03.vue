@@ -471,7 +471,7 @@ const goToHome = () => {
   }
 }
 .data_w {
-  max-height: calc(100vh - 240px);
+  max-height: calc(100vh - 280px);
   overflow-y: auto;
   padding-bottom: 20px;
 }
@@ -849,7 +849,7 @@ const goToHome = () => {
   .esti_inner {
     max-width: 280px;
     .data_w {
-      max-height: calc(100dvh - 410px);
+      max-height: calc(100dvh - (45px + 50px + 100px + 57px));
     }
   }
   // 영역 이름
