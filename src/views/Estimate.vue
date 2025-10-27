@@ -394,7 +394,7 @@ onBeforeUnmount(() => {
     }
   }
   .esti_select {
-    max-height: calc(100dvh - 410px);
+    max-height: calc(100dvh - (45px + 50px + 170px + 57px));
     padding-bottom: 0px;
   }
 }

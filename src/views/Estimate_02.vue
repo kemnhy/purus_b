@@ -216,7 +216,7 @@ const goNextPage = () => {
 }
 
 .input_w {
-  max-height: calc(100vh - 400px);
+  max-height: calc(100dvh - 280px);
   overflow-y: auto;
   padding-bottom: 20px;
 }
@@ -330,7 +330,7 @@ const goNextPage = () => {
   }
 
   .input_w {
-    max-height: calc(100vh - (65px + 155px + 60px));
+    // max-height: calc(100vh - (65px + 155px + 60px));
     overflow-y: auto;
     padding-bottom: 20px;
   }
@@ -372,7 +372,7 @@ const goNextPage = () => {
   }
 
   .input_w {
-    max-height: calc(100dvh - 410px);
+    max-height: calc(100dvh - (45px + 50px + 170px + 50px));
     overflow-y: auto;
     padding-bottom: 20px;
   }

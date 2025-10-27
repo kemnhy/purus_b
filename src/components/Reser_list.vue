@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
         padding: 0 10px;
       }
       .review_btn {
-        padding: 5px 10px;
+        padding: 5px 25px;
       }
     }
   }
