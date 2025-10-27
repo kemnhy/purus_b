@@ -157,7 +157,7 @@
   }
 }
 // 390px 반응형
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 450px) {
   .qr-banner {
     padding: 30px 0;
     .inner {
