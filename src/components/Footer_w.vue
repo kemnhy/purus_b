@@ -28,7 +28,7 @@
 
 .footer {
   width: 100%;
-  // background-color: $grey-color;
+
 
   padding: 30px 0;
 
