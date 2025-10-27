@@ -57,7 +57,7 @@ const reviewCards = ref([
     username: "000 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
-    mainImage: "/images/img1.png",
+    mainImage: "/public/images/review/1.png",
     description:
       "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
   },
@@ -66,7 +66,7 @@ const reviewCards = ref([
     username: "000 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
-    mainImage: "/images/img2.png",
+    mainImage: "/public/images/review/2.png",
     description:
       "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
   },
@@ -75,7 +75,16 @@ const reviewCards = ref([
     username: "000 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
-    mainImage: "/images/img3.png",
+    mainImage: "/public/images/review/3.png",
+    description:
+      "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
+  },
+  {
+    profileImg: "/images/profile.png",
+    username: "000 고객님",
+    date: "2025.09.16",
+    service: "카이저제빙기 디테일 클리어서비스 이용",
+    mainImage: "/public/images/review/4.png",
     description:
       "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
   },
@@ -595,6 +604,7 @@ const closeCouponModal = () => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
+  padding: 20px 0;
 }
 
 .review-card {
@@ -848,7 +858,7 @@ const closeCouponModal = () => {
   justify-content: center;
   gap: 8px;
   padding: 16px 24px;
-  background: linear-gradient(135deg, $point-color, #4e80ee);
+  background: linear-gradient(135deg, $point-color);
   color: white;
   border: none;
   border-radius: 12px;
@@ -944,7 +954,7 @@ const closeCouponModal = () => {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, $point-color, #92b3fa);
+  background: linear-gradient(135deg, $point-color, lighten($point-color, 20%));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1009,17 +1019,12 @@ const closeCouponModal = () => {
   gap: 8px;
 
   &:hover {
-    background-color: #2155c5;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba($point-color, 0.3);
   }
 
   &.copied {
     background-color: #10b981;
-
-    &:hover {
-      background-color: #0e9467;
-    }
   }
 
   i {
@@ -1067,7 +1072,7 @@ const closeCouponModal = () => {
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #2155c5;
+    background-color: darken($point-color, 10%);
   }
 }
 
@@ -1078,7 +1083,7 @@ const closeCouponModal = () => {
 
   // padding: 30px 90px;
   border-radius: 16px;
-  background-color: #b1d1f2;
+  background-color: $main-color;
   margin-top: 15px;
   margin-bottom: 30px;
 }
@@ -1537,7 +1542,7 @@ const closeCouponModal = () => {
     border-radius: 10px;
 
     &:hover {
-      background: #2155c5;
+      background: darken($point-color, 10%);
     }
   }
 }

@@ -19,7 +19,7 @@
         :loop="true"
         :breakpoints="{
           0: { slidesPerView: 1 }, // 모바일 (0~390)
-          391: { slidesPerView: 2 }, // 태블릿 (391~768)
+          451: { slidesPerView: 2 }, // 태블릿 (391~768)
           769: { slidesPerView: 3 }, // PC (769 이상)
         }"
         ref="mySwiper"
@@ -305,7 +305,7 @@ const items = [
   }
 
   /* ✅ 390px 이하 전용 */
-  @media (max-width: 390px) {
+  @media (max-width: 450px) {
     padding: 30px 0;
 
     .title-box {

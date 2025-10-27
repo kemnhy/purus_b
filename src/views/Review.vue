@@ -11,23 +11,28 @@ import Footer_w from "@/components/Footer_w.vue";
       <!-- 헤더 -->
       <Header_w />
       <div class="inner banner">
-        <!-- 리뷰 textbox -->
-        <div class="review-div">
-          <img src="/images/eventText.png" alt="리뷰 작성 혜택" />
-          <p>리뷰 작성 혜택!!</p>
-        </div>
-        <!-- 쿠폰 img-->
-        <div class="review-div">
-          <img src="/images/coupon.png" alt="1회 케어 무상제공" />
-        </div>
-
-        <!-- 이동버튼 -->
-        <div class="review-div">
-          <div class="glass-btn">
-            <p>리뷰 작성 하고 쿠폰 받기</p>
-            <img src="/images/download.svg" alt="리뷰쓰고 쿠폰 다운" />
+        <div class="review-left">
+          <!-- 리뷰 textbox -->
+          <div class="review-div">
+            <img src="/images/eventText.png" alt="리뷰 작성 혜택" />
+            <p>리뷰 작성 혜택!!</p>
+          </div>
+          <!-- 쿠폰 img-->
+          <div class="review-div">
+            <img src="/images/coupon.png" alt="1회 케어 무상제공" />
           </div>
         </div>
+
+        <div class="review-right">
+          <!-- 이동버튼 -->
+          <div class="review-div">
+            <div class="glass-btn">
+              <p>리뷰 작성 하고 쿠폰 받기</p>
+              <img src="/images/download.svg" alt="리뷰쓰고 쿠폰 다운" />
+            </div>
+          </div>
+        </div>
+
         <!--  -->
       </div>
       <!-- 푸터 -->
@@ -61,7 +66,7 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
   &_top {
     position: relative;
     background-color: #061c34;
-    height: 974px;
+    // height: 974px;
     display: block;
 
     // 별, 눈송이 등 배경 장식
@@ -86,12 +91,13 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
 .banner {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
   text-align: center;
-  margin: 60px auto;
+  padding-bottom: 2%;
+  // margin: 60px auto;
   .review-div {
     img {
-      width: 43%;
+      width: 30%;
     }
     p {
       font-size: $main-title;
@@ -101,9 +107,11 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
     .glass-btn {
       margin: auto;
       position: relative;
-      height: 90px;
-      width: 530px;
-      padding: 0 30px;
+      // height: 90px;
+
+      // width: 530px;
+      width: 26%;
+      padding: 15px 0;
       border-radius: 50px;
       border: 1px solid transparent;
       background: transparent;
@@ -119,11 +127,11 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
       gap: 15px;
 
       p {
-        font-size: 30px;
+        font-size: 18px;
       }
 
       img {
-        width: 10%;
+        width: 8%;
       }
 
       &::after {
@@ -151,11 +159,11 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
 // 반응형
 @media screen and (max-width: 768px) {
   .review {
-    &_top {
-      height: 600px;
-    }
+
     .banner {
       gap: 30px;
+  padding-bottom: 5%;
+
       .review-div {
         padding: 0;
         img {
@@ -167,12 +175,13 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
         }
         .glass-btn {
           width: 300px;
-          height: 50px;
+          // height: 50px;
+          // padding: 10px;
           p {
             font-size: 18px;
           }
           img {
-            width: 10%;
+            width: 8%;
           }
         }
       }
@@ -181,9 +190,7 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
 }
 @media screen and (max-width: 390px) {
   .review {
-    &_top {
-      height: 400px;
-    }
+   
     .banner {
       gap: 20px;
       margin: 20px auto;
