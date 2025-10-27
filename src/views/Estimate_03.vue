@@ -6,7 +6,7 @@
     <!-- 헤더 구분선 -->
     <hr class="header_line" />
     <!-- 견적확인 -->
-    <div class="esti_check esti_inner">
+    <div class="esti_check esti_inner inner">
       <div class="esti_wrap">
         <!-- 영역 이름 -->
         <div class="esti_title">
@@ -110,7 +110,7 @@
     </div>
     <!-- 다음 버튼 -->
     <div class="fixed_btn">
-      <div class="esti_inner">
+      <div class="esti_inner inner">
         <button :class="{ active: selectedPeriod }" class="btn" @click="openCheckModal">
           예약 정보 확인하기
         </button>
@@ -374,6 +374,10 @@ const showCheckModal = ref(false);
 const showLoadingModal = ref(false);
 const showCheckAnimation = ref(false);
 const openCheckModal = () => {
+  if (address.value === "") {
+    alert("주소를 입력해주세요.");
+    return;
+  }
   showCheckModal.value = true;
 };
 const reserCompleteModal = async () => {
@@ -467,7 +471,7 @@ const goToHome = () => {
   }
 }
 .data_w {
-  max-height: calc(100vh - 420px);
+  max-height: calc(100vh - 240px);
   overflow-y: auto;
   padding-bottom: 20px;
 }
@@ -844,6 +848,9 @@ const goToHome = () => {
 @media screen and (max-width: 390px) {
   .esti_inner {
     max-width: 280px;
+    .data_w {
+      max-height: calc(100vh - 400px);
+    }
   }
   // 영역 이름
   .esti_title {

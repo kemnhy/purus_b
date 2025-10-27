@@ -61,7 +61,7 @@ const gotoReview = (index) => {
 const descP = ref("");
 const updateP = () => {
   descP.value =
-    window.innerWidth <= 390
+    window.innerWidth <= 450
       ? `예약 정보에 변경 사항이 있으신 경우,\n담당자에게 문의 부탁드립니다.`
       : "예약 정보에 변경 사항이 있으신 경우, 담당자에게 문의 부탁드립니다.";
 };
@@ -171,7 +171,7 @@ onBeforeUnmount(() => {
     margin-bottom: 40px;
   }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 450px) {
   .reser_title {
     h1 {
       font-size: $esti-medium-txt;
@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
         padding: 0 10px;
       }
       .review_btn {
-        padding: 5px 8px;
+        padding: 5px 10px;
       }
     }
   }

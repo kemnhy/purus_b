@@ -6,7 +6,7 @@
     <!-- 헤더 구분선 -->
     <hr class="header_line" />
     <!-- 견적확인 -->
-    <div class="esti_check esti_inner">
+    <div class="esti_check esti_inner inner">
       <div class="esti_wrap">
         <!-- 영역 이름 -->
         <div class="esti_title">
@@ -114,7 +114,7 @@
     </div>
     <!-- 다음 버튼 -->
     <div class="fixed_btn">
-      <div class="esti_inner">
+      <div class="esti_inner inner">
         <div class="buttons">
           <button :class="{ active: selectAgree2 }" class="btn" @click="pushMessage">
             견적만 받기
@@ -216,7 +216,7 @@ const goNextPage = () => {
 }
 
 .input_w {
-  max-height: calc(100vh - 240px);
+  max-height: calc(100vh - 400px);
   overflow-y: auto;
   padding-bottom: 20px;
 }
@@ -372,7 +372,7 @@ const goNextPage = () => {
   }
 
   .input_w {
-    max-height: calc(100vh - 420px);
+    max-height: calc(100vh - 400px);
     overflow-y: auto;
     padding-bottom: 20px;
   }
