@@ -243,7 +243,7 @@ onBeforeUnmount(() => {
           }
           img {
             width: 100%;
-            
+
             aspect-ratio: 1 / 1;
             object-fit: contain;
           }
@@ -304,7 +304,6 @@ onBeforeUnmount(() => {
           font-size: 24px;
         }
         .logo {
-          // margin-bottom: 15px;
           width: 140px;
         }
       }
