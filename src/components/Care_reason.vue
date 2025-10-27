@@ -31,9 +31,9 @@
       }"
       :initialSlide="0"
       :coverflow-effect="{
-        rotate: 0, // 좌우 회전각 
+        rotate: 0, // 좌우 회전각
         stretch: 130, // 카드 간 거리
-        depth: 200, // 깊이감 
+        depth: 200, // 깊이감
         modifier: 1, // 효과 강도
         scale: 0.9, // 양옆 카드 축소 비율
         slideShadows: false,
@@ -48,7 +48,7 @@
       }"
       class="care-swiper"
     >
-    <!-- swiper 카드 -->
+      <!-- swiper 카드 -->
       <swiper-slide v-for="item in cares" :key="item.id">
         <div class="card">
           <img :src="item.img" :alt="item.name" />
@@ -140,7 +140,6 @@ onUnmounted(() => {
       overflow: hidden;
       // box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
-      cursor: pointer;
       padding: 0;
 
       img {
@@ -281,6 +280,7 @@ onUnmounted(() => {
           transition: transform 0.3s, opacity 0.3s;
           .card {
             width: 200px;
+            cursor: pointer;
             p {
               font-size: 16px;
               padding: 30px 0;
