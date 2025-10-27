@@ -6,7 +6,7 @@
     <!-- 헤더 구분선 -->
     <hr class="header_line" />
     <!-- 견적확인 -->
-    <div class="esti_check esti_inner">
+    <div class="esti_check esti_inner inner">
       <div class="esti_wrap">
         <!-- 영역 이름 -->
         <div class="esti_title">
@@ -68,7 +68,7 @@
     </div>
     <!-- 견적 금액 -->
     <div class="esti_price">
-      <div class="esti_inner">
+      <div class="esti_inner inner">
         <div class="price_txt">
           <div class="price_title">
             <p>견적 금액</p>
@@ -394,7 +394,7 @@ onBeforeUnmount(() => {
     }
   }
   .esti_select {
-    max-height: calc(100vh - 420px);
+    max-height: calc(100vh - 400px);
     padding-bottom: 0px;
   }
 }

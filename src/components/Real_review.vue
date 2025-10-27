@@ -92,7 +92,7 @@ const reviews = [
 const isMobile = ref(false);
 
 const checkScreen = () => {
-  isMobile.value = window.innerWidth <= 390;
+  isMobile.value = window.innerWidth <= 450;
 };
 
 onMounted(() => {

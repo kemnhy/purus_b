@@ -104,7 +104,7 @@ const gotoList = () => {
     width: 100%;
   }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 450px) {
   .reser_title {
     h1 {
       font-size: $esti-medium-txt;
