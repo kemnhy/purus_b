@@ -467,7 +467,7 @@ const goToHome = () => {
   }
 }
 .data_w {
-  max-height: calc(100vh - 300px);
+  max-height: calc(100vh - 420px);
   overflow-y: auto;
   padding-bottom: 20px;
 }
@@ -606,6 +606,7 @@ const goToHome = () => {
     .btn {
       width: 100%;
       font-weight: 600;
+      font-size: 18px;
       text-align: center;
       background-color: $grey-color;
       color: $border-color;
