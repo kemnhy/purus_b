@@ -20,7 +20,8 @@
             v-for="(item, i) in cards"
             :key="i"
             @mouseenter="activeIndex = i"
-            @mouseleave="activeIndex = null">
+            @mouseleave="activeIndex = null"
+          >
             <h3 class="title">{{ item.title }}</h3>
             <div class="img" :class="{ lastCard: i === 3 }">
               <img :src="item.img" :alt="item.title" />
@@ -251,6 +252,7 @@ onBeforeUnmount(() => {
       .hover-desc {
         position: absolute;
         top: 0;
+        left: 0;
 
         height: 100%;
         background-color: rgba(0, 0, 0, 0.9);
