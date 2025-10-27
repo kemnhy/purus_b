@@ -319,7 +319,7 @@ onBeforeUnmount(() => {
     max-width: 600px;
   }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 450px) {
   .esti_inner {
     max-width: 280px;
   }
@@ -394,7 +394,7 @@ onBeforeUnmount(() => {
     }
   }
   .esti_select {
-    max-height: calc(100vh - 400px);
+    max-height: calc(100dvh - 410px);
     padding-bottom: 0px;
   }
 }
