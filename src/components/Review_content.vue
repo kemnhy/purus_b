@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
 
-
 const SHEETDB_API = "https://sheetdb.io/api/v1/qgf9o9vku818n";
 const revInfo = ref([]);
 const filteredReviews = ref([]);
@@ -12,7 +11,6 @@ const selectedImage = ref(null);
 const showImageModal = ref(false);
 const copiedSuccess = ref(false);
 const hoverRating = ref(0);
-
 
 onMounted(() => {
   getReviewsInfo();
@@ -396,7 +394,11 @@ const closeCouponModal = () => {
                     class="stat-bar-fill"
                     :style="{
                       width: `${
-                        (getRatingCounts[rating] / totalReviews) * 100
+                        totalReviews
+                          ? (getRatingCounts[ratingCnt] /
+                              totalReviews) *
+                            100
+                          : 0
                       }%`,
                     }"
                   ></div>
@@ -411,7 +413,7 @@ const closeCouponModal = () => {
               <!-- 필터 버튼 -->
               <div class="filter-tabs">
                 <!-- <div class="filler-icon"></div> -->
-                <button class="filter-btn" @click="seqLast">최신순</button>
+                <button class="filter-btn active" @click="seqLast">최신순</button>
                 <button class="filter-btn" @click="seqBest">추천순</button>
                 <button class="filter-btn photo" @click="selPhoto">
                   <div class="img-icon"></div>
@@ -429,7 +431,7 @@ const closeCouponModal = () => {
             <div class="divider"></div>
 
             <!-- 리뷰 아이템 -->
-            <div class="review-item" v-for="(review, i) in revInfo" :key="i">
+            <div class="review-item" v-for="review in revInfo" :key="review.id">
               <!-- 사용자 정보 -->
               <div class="user-info">
                 <img
@@ -493,7 +495,7 @@ const closeCouponModal = () => {
                   @click="toggleLike(review.id)"
                   :class="{ active: isLiked(review.id) }"
                 >
-                  <i class="like-icon" :class="{ filled: isLiked(revInfo.id) }"
+                  <i class="like-icon" :class="{ filled: isLiked(review.id) }"
                     ></i
                   >
                   <span>{{ review.likes }}</span>
@@ -522,8 +524,8 @@ const closeCouponModal = () => {
                     active: star <= (hoverRating || formData.rating),
                     hover: hoverRating && star <= hoverRating,
                   }"
-                  @click="setRating(별)"
-                  @mouseenter="setHoverRating(별)"
+                  @click="setRating(star)"
+                  @mouseenter="setHoverRating(star)"
                 ></i>
               </div>
               <span v-if="formData.rating" class="rating-text">
@@ -1266,6 +1268,7 @@ const closeCouponModal = () => {
 
   .stat-bar-fill {
     position: absolute;
+    // width: 100px;
     top: 0;
     left: 0;
     height: 10px;
@@ -1407,7 +1410,6 @@ const closeCouponModal = () => {
 
     &.active {
       color: $point-color;
-      background-color: rgba($point-color, 0.15);
       font-weight: 700;
     }
 
