@@ -590,6 +590,7 @@ const goToHome = () => {
     border-radius: 10px;
     background-color: $grey-color;
     cursor: pointer;
+    color: $sub-font-color;
 
     &.active {
       background: $point-color;
@@ -934,8 +935,8 @@ const goToHome = () => {
       }
     }
     .x-mark {
-      top: 25px;
-      right: 25px;
+      top: 20px;
+      right: 20px;
       font-size: 18px;
     }
     .modal_w {
