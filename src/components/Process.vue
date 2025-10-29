@@ -294,10 +294,6 @@ onBeforeUnmount(() => {
   }
 
   //아코디언 애니메이션
-  .accordion-enter-active,
-  .accordion-leave-active {
-    transition: all 0.3s ease;
-  }
   .accordion-enter-from,
   .accordion-leave-to {
     opacity: 0;
