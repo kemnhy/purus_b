@@ -72,7 +72,7 @@ const getReviewsInfo = async () => {
 const reviewCards = ref([
   {
     profileImg: "/images/profile.png",
-    username: "000 고객님",
+    username: "진** 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
     mainImage: "/images/review/1.png",
@@ -81,7 +81,7 @@ const reviewCards = ref([
   },
   {
     profileImg: "/images/profile.png",
-    username: "000 고객님",
+    username: "최** 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
     mainImage: "/images/review/2.png",
@@ -90,7 +90,7 @@ const reviewCards = ref([
   },
   {
     profileImg: "/images/profile.png",
-    username: "000 고객님",
+    username: "김** 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
     mainImage: "/images/review/3.png",
@@ -99,7 +99,7 @@ const reviewCards = ref([
   },
   {
     profileImg: "/images/profile.png",
-    username: "000 고객님",
+    username: "이** 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
     mainImage: "/images/review/4.png",
@@ -188,7 +188,9 @@ const seqBest = () => {
 
 const selPhoto = () => {
   activeFilter.value = "사진 리뷰";
-  filteredReviews.value = revInfo.value.filter((review) => review.images && review.images.length > 0);
+  filteredReviews.value = revInfo.value.filter(
+    (review) => review.images && review.images.length > 0
+  );
 };
 
 // 이미지 모달
@@ -218,7 +220,9 @@ const generatedCouponCode = ref("");
 
 // 폼 유효성 검사
 const isFormValid = computed(() => {
-  return formData.value.rating > 0 && formData.value.service && formData.value.comment.trim().length > 0;
+  return (
+    formData.value.rating > 0 && formData.value.service && formData.value.comment.trim().length > 0
+  );
 });
 
 // 별점 설정
@@ -376,9 +380,10 @@ const closeCouponModal = () => {
                   <div
                     class="stat-bar-fill"
                     :style="{
-                      width: `${totalReviews ? (getRatingCounts[ratingCnt] / totalReviews) * 100 : 0}%`,
-                    }"
-                  ></div>
+                      width: `${
+                        totalReviews ? (getRatingCounts[ratingCnt] / totalReviews) * 100 : 0
+                      }%`,
+                    }"></div>
                 </div>
               </div>
             </div>
@@ -411,7 +416,11 @@ const closeCouponModal = () => {
             <div class="review-item" v-for="review in revInfo" :key="review.id">
               <!-- 사용자 정보 -->
               <div class="user-info">
-                <img v-if="review.userImage" :src="review.userImage" alt="프로필" class="profile-img" />
+                <img
+                  v-if="review.userImage"
+                  :src="review.userImage"
+                  alt="프로필"
+                  class="profile-img" />
                 <!-- 개별 점수 -->
                 <div class="user-details">
                   <span class="username">{{ review.username }}</span>
@@ -419,7 +428,9 @@ const closeCouponModal = () => {
                     <div class="stars stars-bg">
                       <i v-for="star in 5" :key="`bg-${star}`" class="fas fa-star"></i>
                     </div>
-                    <div class="stars stars-fill" :style="{ width: `${(review.rating / 5) * 100}%` }">
+                    <div
+                      class="stars stars-fill"
+                      :style="{ width: `${(review.rating / 5) * 100}%` }">
                       <i v-for="star in 5" :key="`fill-${star}`" class="fas fa-star"></i>
                     </div>
                   </div>
@@ -429,7 +440,12 @@ const closeCouponModal = () => {
 
               <!-- 이미지 갤러리 -->
               <div class="image-gallery" v-if="review.images && review.images.length > 0">
-                <img v-for="(img, idx) in review.images" :key="idx" :src="img" alt="리뷰 이미지" class="review-img" />
+                <img
+                  v-for="(img, idx) in review.images"
+                  :key="idx"
+                  :src="img"
+                  alt="리뷰 이미지"
+                  class="review-img" />
                 {{ (img, idx) }}
               </div>
 
@@ -440,7 +456,10 @@ const closeCouponModal = () => {
 
               <!-- 좋아요 버튼 -->
               <div class="like-div">
-                <button class="like-btn" @click="toggleLike(review.id)" :class="{ active: isLiked(review.id) }">
+                <button
+                  class="like-btn"
+                  @click="toggleLike(review.id)"
+                  :class="{ active: isLiked(review.id) }">
                   <i class="like-icon" :class="{ filled: isLiked(review.id) }"></i>
                   <span>{{ review.likes }}</span>
                 </button>
@@ -469,10 +488,9 @@ const closeCouponModal = () => {
                     hover: hoverRating && star <= hoverRating,
                   }"
                   @click="setRating(star)"
-                  @mouseenter="setHoverRating(star)"
-                ></i>
+                  @mouseenter="setHoverRating(star)"></i>
               </div>
-              <span v-if="formData.rating" class="rating-text"> {{ formData.rating }}점 선택됨 </span>
+              <span v-if="formData.rating" class="rating-text">{{ formData.rating }}점 선택됨</span>
             </div>
 
             <!-- 서비스 선택 -->
@@ -480,7 +498,9 @@ const closeCouponModal = () => {
               <label>이용 서비스</label>
               <select v-model="formData.service" class="form-select">
                 <option value="">서비스를 선택해주세요</option>
-                <option value="카이저제빙기 디테일 클리어서비스">카이저제빙기 디테일 클리어서비스</option>
+                <option value="카이저제빙기 디테일 클리어서비스">
+                  카이저제빙기 디테일 클리어서비스
+                </option>
                 <option value="제빙기 정기 클리닝">제빙기 정기 클리닝</option>
                 <option value="제빙기 긴급 수리">제빙기 긴급 수리</option>
               </select>
@@ -493,8 +513,7 @@ const closeCouponModal = () => {
                 v-model="formData.comment"
                 placeholder="서비스 이용 후기를 자유롭게 작성해주세요."
                 class="form-textarea"
-                rows="4"
-              ></textarea>
+                rows="4"></textarea>
             </div>
 
             <!-- 이미지 업로드 -->
@@ -507,8 +526,7 @@ const closeCouponModal = () => {
                   accept="image/*"
                   multiple
                   class="file-input"
-                  id="image-upload"
-                />
+                  id="image-upload" />
                 <label for="image-upload" class="upload-btn">
                   <i class="fas fa-camera"></i>
                   <span>사진 추가</span>
@@ -544,7 +562,9 @@ const closeCouponModal = () => {
             </div>
             <h3>🎉 쿠폰이 발급되었습니다!</h3>
             <p class="coupon-message">
-              리뷰 작성 감사합니다. 다음 서비스 이용 시 사용하실 수 있는 쿠폰을 발급해드렸습니다.
+              리뷰 작성 감사합니다.
+              <br />
+              다음 서비스 이용 시 사용하실 수 있는 쿠폰을 발급해드렸습니다.
             </p>
             <div class="coupon-code">
               <span class="code-label">쿠폰 코드</span>

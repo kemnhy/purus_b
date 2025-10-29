@@ -108,6 +108,7 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
     }
     p {
       font-size: $main-title;
+      margin-bottom: 20px;
       font-weight: 700;
       color: #fff;
     }
@@ -124,8 +125,7 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
       background: transparent;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 0 0 0.5px $bd-alpha inset,
-        0 6px 24px rgba(97, 188, 225, 0.1); /* 외곽선 느낌을 조금 더 선명하게 */
+      box-shadow: 0 0 0 0.5px $bd-alpha inset, 0 6px 24px rgba(97, 188, 225, 0.1); /* 외곽선 느낌을 조금 더 선명하게 */
       cursor: pointer;
       color: $grey-color;
       font-size: $esti-large-txt;
@@ -136,6 +136,7 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
 
       p {
         font-size: 18px;
+        margin: 0;
       }
 
       img {
@@ -148,24 +149,15 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
         inset: 1px 1px auto 1px;
         height: 90%;
         border-radius: 50px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.2),
-          rgba(255, 255, 255, 0)
-        );
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
         pointer-events: none;
       }
 
       &:hover {
         color: #061c34;
-        background: linear-gradient(
-              rgba(255, 255, 255, 0.1),
-              rgba(255, 255, 255, 0.1)
-            )
-            padding-box,
+        background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
           $border-grad border-box;
-        box-shadow: 0 0 0 0.5px $bd-alpha inset,
-          0 8px 28px rgba(33, 150, 243, 0.28),
+        box-shadow: 0 0 0 0.5px $bd-alpha inset, 0 8px 28px rgba(33, 150, 243, 0.28),
           /* 블루 글로우 */ 0 6px 24px rgba(0, 0, 0, 0.25);
         transform: translateY(-1px);
       }
