@@ -27,7 +27,7 @@
       <li @click="goReser">예약 내역 조회</li>
       <li>
         <button class="btn" @click="goEstimate">
-          <span>견적 확인</span
+          <span>무료 견적</span
           ><span><i class="fa-solid fa-arrow-right"></i></span>
         </button>
       </li>
