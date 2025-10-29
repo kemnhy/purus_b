@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
   background: $main-color;
   // min-height: 100vh;
   
-  // justify-content: center;
+  
   // align-items: center;
   padding: $web-spacing 0;
   .inner {
