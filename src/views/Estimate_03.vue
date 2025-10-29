@@ -370,6 +370,7 @@ const gaugeWidth = computed(() => {
 const selectDay = ref(false);
 
 // 예약정보 확인 모달
+
 const showCheckModal = ref(false);
 const showLoadingModal = ref(false);
 const showCheckAnimation = ref(false);
