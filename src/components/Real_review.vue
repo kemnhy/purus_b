@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
 .real-review {
   display: flex;
   justify-content: center;
-  padding: 100px 0;
+  padding: 100px 0 0;
   background-color: #f0faff;
 }
 
@@ -151,7 +151,7 @@ onBeforeUnmount(() => {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* cover: 비율 유지하며 박스 가득 채움(일부 잘릴 수 있음) */
+      
       object-position: center; /* 중앙 기준으로 잘라짐, 필요하면 변경 */
     }
   }
