@@ -659,7 +659,7 @@ const closeCouponModal = () => {
 @use "../assets/styles/_variables" as *;
 
 .rev-con {
-  width: 100%;
+  // width: 100%;
   height: auto;
   // background-color: #f19797;
   font-style: normal;

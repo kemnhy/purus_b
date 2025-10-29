@@ -3,7 +3,7 @@
     <div class="inner">
       <p class="text">"<span class="highlight">청결 이상의 가치</span>, 합리적인 비용으로 경험하세요"</p>
       <button @click="goEstimate" class="btn-check btn">
-        <span>견적 확인</span>
+        <span>무료 견적</span>
         <span><i class="fa-solid fa-arrow-right"></i></span>
       </button>
     </div>
