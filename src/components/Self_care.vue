@@ -127,7 +127,7 @@ onBeforeUnmount(() => {
 .care-wrap {
   background: $main-color;
   // min-height: 100vh;
-  // display: flex;
+  
   // justify-content: center;
   // align-items: center;
   padding: $web-spacing 0;
