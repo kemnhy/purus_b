@@ -169,7 +169,6 @@ onBeforeUnmount(() => {
 .esti_title {
   display: flex;
   height: 60px;
-  // background-color: aliceblue;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $grey-color;
