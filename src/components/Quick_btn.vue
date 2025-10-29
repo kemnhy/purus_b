@@ -3,7 +3,7 @@
   <ul class="quickMenu">
     <!-- 견적확인 버튼 -->
     <li>
-      <button class="blue estimate" @click="goEstimate">견적<br />확인</button>
+      <button class="blue estimate" @click="goEstimate">무료<br />견적</button>
     </li>
     <!-- 고객후기 버튼 -->
     <li>
