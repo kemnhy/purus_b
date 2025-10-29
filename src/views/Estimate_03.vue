@@ -378,6 +378,14 @@ const openCheckModal = () => {
     alert("주소를 입력해주세요.");
     return;
   }
+  if (selectedDate.value === null) {
+    alert("서비스 날짜를 선택해주세요.");
+    return;
+  }
+  if (selectedPeriod.value === null) {
+    alert("서비스 시간을 선택해주세요.");
+    return;
+  }
   showCheckModal.value = true;
 };
 const reserCompleteModal = async () => {
