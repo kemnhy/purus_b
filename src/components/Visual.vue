@@ -1,7 +1,6 @@
 <template>
   <!-- 메인비디오 배경 -->
-  <!-- <video src="/public/images/main_video.mp4" muted autoplay loop></video> -->
-   <img src="/public/images/main_video.webp" alt="main-video" class="main-video">
+  <video src="/public/images/main_video.mp4" muted autoplay loop></video>
   <div class="visual inner">
     <!-- 메인 비주얼 텍스트 -->
     <div class="text-box">
@@ -39,7 +38,7 @@ const texts = [
 ];
 
 // router
-const router = useRouter(); 
+const router = useRouter();
 
 // 상태관리
 const currentIndex = ref(0); //현재 노출중인 문장 인덱스
@@ -49,7 +48,7 @@ const allVisible = ref(false); //모든 문장 노출 완료 여부
 const activeLines = ref(Array(texts.length).fill(false)); //애니메이션 활성 상태
 let intervalId = null;
 
-//웹 - 스크롤 핸들러 
+//웹 - 스크롤 핸들러
 const handleScroll = async (e) => {
   // 스크롤이 맨 위일 때만 작동
   if (window.scrollY !== 0) return;
@@ -117,20 +116,26 @@ onMounted(() => {
     }, 500);
   } else {
     // web(wheel O)
-    if (window.scrollY === 0) {
-      document.body.style.overflow = "hidden";
-      visibleLine.value = [];
-      activeLines.value = Array(texts.length).fill(false);
-      currentIndex.value = 0;
-      allVisible.value = false;
-    } else {
-      // 이미 스크롤이 내려가 있는 상태면 전부 보이게 처리
-      visibleLine.value = [...texts];
-      activeLines.value = Array(texts.length).fill(true);
-      currentIndex.value = texts.length;
-      allVisible.value = true;
-    }
-    window.addEventListener("wheel", handleScroll, { passive: false });
+    // 뒤로가기로 돌아왔을때 스크롤 Y 값이 0으로 인식됨을 방지
+    nextTick(() => {
+      setTimeout(() => {
+        if (window.scrollY === 0) {
+          document.body.style.overflow = "hidden";
+          visibleLine.value = [];
+          activeLines.value = Array(texts.length).fill(false);
+          currentIndex.value = 0;
+          allVisible.value = false;
+        } else {
+          // 이미 스크롤이 내려가 있는 상태면 전부 보이게 처리
+          visibleLine.value = [...texts];
+          activeLines.value = Array(texts.length).fill(true);
+          currentIndex.value = texts.length;
+          allVisible.value = true;
+        }
+        // 스크롤 위치 확인 후 휠리스너 추가
+        window.addEventListener("wheel", handleScroll, { passive: false });
+      }, 0);
+    });
   }
 });
 
@@ -143,6 +148,7 @@ onUnmounted(() => {
     intervalId = null;
   }
   document.body.style.overflow = "";
+  document.documentElement.style.overflow = "";
 });
 
 // go estimate
@@ -155,7 +161,7 @@ const goEstimate = () => {
 @use "../assets/styles/variables" as *;
 
 // 비디오 배경
-.main-video {
+video {
   position: absolute;
   top: 0;
   left: 0;
@@ -276,7 +282,7 @@ const goEstimate = () => {
     .text-box {
       padding-bottom: 15%;
       text-align: center;
-      p{
+      p {
         font-weight: 500;
       }
       .main-txt {
