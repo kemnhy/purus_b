@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const SHEETDB_API = "https://sheetdb.io/api/v1/qgf9o9vku818n";
 const revInfo = ref([]);
@@ -11,11 +11,23 @@ const selectedImage = ref(null);
 const showImageModal = ref(false);
 const copiedSuccess = ref(false);
 const hoverRating = ref(0);
+const isMobile = ref(window.innerWidth <= 450);
+
+//  리사이즈 핸들러
+const handleResize = () => {
+  isMobile.value = window.innerWidth <= 450;
+};
 
 onMounted(() => {
   getReviewsInfo();
   console.log(averageScore.value);
   loadLikedReviews();
+  window.addEventListener("resize", handleResize);
+});
+
+// 해제
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
 });
 
 const getReviewsInfo = async () => {
@@ -65,7 +77,7 @@ const reviewCards = ref([
     username: "000 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
-    mainImage: "/public/images/review/1.png",
+    mainImage: "/images/review/1.png",
     description:
       "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
   },
@@ -74,7 +86,7 @@ const reviewCards = ref([
     username: "000 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
-    mainImage: "/public/images/review/2.png",
+    mainImage: "/images/review/2.png",
     description:
       "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
   },
@@ -83,7 +95,7 @@ const reviewCards = ref([
     username: "000 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
-    mainImage: "/public/images/review/3.png",
+    mainImage: "/images/review/3.png",
     description:
       "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
   },
@@ -92,7 +104,7 @@ const reviewCards = ref([
     username: "000 고객님",
     date: "2025.09.16",
     service: "카이저제빙기 디테일 클리어서비스 이용",
-    mainImage: "/public/images/review/4.png",
+    mainImage: "/images/review/4.png",
     description:
       "퓨어러스는 제빙기 내부에 있는 모든 오염들에 대해 완벽한 케어를 목표로 하고 있습니다. 전문적인 장비와 기술로 깨끗하게 청소해주셔서 정말 만족스럽습니다.",
   },
@@ -311,7 +323,7 @@ const closeCouponModal = () => {
       <p>퓨어러스의 제빙기 케어 사례를 확인하세요.</p>
     </div>
     <!-- 카드형 리뷰 섹션 (60%) -->
-    <div class="review-cards-section">
+    <div class="review-cards-section" v-if="!isMobile">
       <div
         class="review-card"
         v-for="(card, index) in reviewCards"
@@ -395,9 +407,7 @@ const closeCouponModal = () => {
                     :style="{
                       width: `${
                         totalReviews
-                          ? (getRatingCounts[ratingCnt] /
-                              totalReviews) *
-                            100
+                          ? (getRatingCounts[ratingCnt] / totalReviews) * 100
                           : 0
                       }%`,
                     }"
@@ -413,7 +423,9 @@ const closeCouponModal = () => {
               <!-- 필터 버튼 -->
               <div class="filter-tabs">
                 <!-- <div class="filler-icon"></div> -->
-                <button class="filter-btn active" @click="seqLast">최신순</button>
+                <button class="filter-btn active" @click="seqLast">
+                  최신순
+                </button>
                 <button class="filter-btn" @click="seqBest">추천순</button>
                 <button class="filter-btn photo" @click="selPhoto">
                   <div class="img-icon"></div>
@@ -1051,7 +1063,7 @@ const closeCouponModal = () => {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, $point-color, lighten($point-color, 20%));
+  background: linear-gradient(135deg, $point-color, #5f8ff5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1169,7 +1181,7 @@ const closeCouponModal = () => {
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: darken($point-color, 10%);
+    background-color: #2156c7;
   }
 }
 
@@ -1580,9 +1592,6 @@ const closeCouponModal = () => {
 }
 .review-form-left {
   width: 60%;
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
 }
 
 // 애니메이션
@@ -1639,7 +1648,7 @@ const closeCouponModal = () => {
     border-radius: 10px;
 
     &:hover {
-      background: darken($point-color, 10%);
+      background: #2156c7;
     }
   }
 }
@@ -1650,10 +1659,6 @@ const closeCouponModal = () => {
 
 @media (max-width: 768px) {
   .rev-con {
-    // .inner{
-    //   width: 90% !important;
-    //   margin: 0 !important;
-    // }
     .title-section {
       padding: 50px 0;
       h2 {
@@ -1758,13 +1763,15 @@ const closeCouponModal = () => {
       }
     }
   }
-
+  .review-form-left {
+    width: 100%;
+  }
   .allscore {
     min-width: 200px;
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 450px) {
   .rev-con {
     .title-section {
       padding: 30px 0;
