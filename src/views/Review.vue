@@ -2,9 +2,17 @@
 import Review_content from "@/components/Review_content.vue";
 import Header_w from "@/components/Header_w.vue";
 import Footer_w from "@/components/Footer_w.vue";
+import Side_menu from "@/components/Side_menu.vue";
+import { onMounted } from "vue";
+
+// 마운트 될때 스크롤 와이 값 0 으로 초기화
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
 </script>
 
 <template>
+  <Side_menu />
   <div class="review">
     <!-- 상단 배너 -->
     <div class="review_top">
@@ -38,7 +46,6 @@ import Footer_w from "@/components/Footer_w.vue";
       <!-- 푸터 -->
     </div>
   </div>
-
   <Review_content />
   <Footer_w />
 </template>
@@ -117,7 +124,8 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
       background: transparent;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 0 0 0.5px $bd-alpha inset, 0 6px 24px rgba(97, 188, 225, 0.1); /* 외곽선 느낌을 조금 더 선명하게 */
+      box-shadow: 0 0 0 0.5px $bd-alpha inset,
+        0 6px 24px rgba(97, 188, 225, 0.1); /* 외곽선 느낌을 조금 더 선명하게 */
       cursor: pointer;
       color: $grey-color;
       font-size: $esti-large-txt;
@@ -140,15 +148,24 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
         inset: 1px 1px auto 1px;
         height: 90%;
         border-radius: 50px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0)
+        );
         pointer-events: none;
       }
 
       &:hover {
         color: #061c34;
-        background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
+        background: linear-gradient(
+              rgba(255, 255, 255, 0.1),
+              rgba(255, 255, 255, 0.1)
+            )
+            padding-box,
           $border-grad border-box;
-        box-shadow: 0 0 0 0.5px $bd-alpha inset, 0 8px 28px rgba(33, 150, 243, 0.28),
+        box-shadow: 0 0 0 0.5px $bd-alpha inset,
+          0 8px 28px rgba(33, 150, 243, 0.28),
           /* 블루 글로우 */ 0 6px 24px rgba(0, 0, 0, 0.25);
         transform: translateY(-1px);
       }
@@ -159,10 +176,9 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
 // 반응형
 @media screen and (max-width: 768px) {
   .review {
-
     .banner {
       gap: 30px;
-  padding-bottom: 5%;
+      padding-bottom: 5%;
 
       .review-div {
         padding: 0;
@@ -190,7 +206,6 @@ $border-grad: linear-gradient(135deg, $g1 0%, $g2 25%, $g3 60%, $g4 100%);
 }
 @media screen and (max-width: 390px) {
   .review {
-   
     .banner {
       gap: 20px;
       margin: 20px auto;
